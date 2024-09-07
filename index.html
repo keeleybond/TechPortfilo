@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             --heading-color: #ffffff;
             --nav-bg-color: rgba(26, 38, 57, 0.9);
         }
+
         body {
             font-family: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
             background-color: var(--bg-color);
@@ -21,12 +23,14 @@
             padding: 0;
             overflow-x: hidden;
         }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 100px 50px;
             position: relative;
         }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -40,24 +44,29 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
         }
+
         .logo {
             font-weight: bold;
             color: var(--accent-color);
             font-size: 1.5rem;
         }
+
         nav ul {
             list-style-type: none;
             display: flex;
         }
+
         nav ul li {
             margin-left: 30px;
         }
+
         nav ul li a {
             color: var(--heading-color);
             text-decoration: none;
             font-size: 0.9rem;
             position: relative;
         }
+
         nav ul li a::after {
             content: '';
             position: absolute;
@@ -68,15 +77,18 @@
             background-color: var(--accent-color);
             transition: width 0.3s ease;
         }
+
         nav ul li a:hover::after {
             width: 100%;
         }
+
         h1 {
             font-size: 3rem;
             color: var(--heading-color);
             margin-bottom: 10px;
             position: relative;
         }
+
         h1::after {
             content: '';
             position: absolute;
@@ -86,21 +98,24 @@
             bottom: -10px;
             left: 0;
         }
+
         .intro {
             display: flex;
             align-items: center;
             margin-bottom: 30px;
             position: relative;
         }
+
         .avatar {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             border: 5px solid var(--accent-color);
-            margin-right: 30px;
+            margin-right: 40px;
             position: relative;
             z-index: 2;
         }
+
         .avatar::before {
             content: '';
             position: absolute;
@@ -108,14 +123,16 @@
             height: 100%;
             border-radius: 50%;
             background-color: var(--accent-color);
-            top: 10px;
-            left: 10px;
+            top: 15px;
+            left: 15px;
             z-index: -1;
         }
+
         p {
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
+
         .cta-button {
             display: inline-block;
             background-color: transparent;
@@ -129,6 +146,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .cta-button::before {
             content: '';
             position: absolute;
@@ -140,15 +158,19 @@
             transition: width 0.3s ease;
             z-index: -1;
         }
+
         .cta-button:hover {
             color: var(--bg-color);
         }
+
         .cta-button:hover::before {
             width: 100%;
         }
+
         .social-links {
             margin-top: 20px;
         }
+
         .social-links a {
             color: var(--accent-color);
             text-decoration: none;
@@ -156,6 +178,7 @@
             font-size: 1.1rem;
             position: relative;
         }
+
         .social-links a::after {
             content: '';
             position: absolute;
@@ -166,9 +189,11 @@
             background-color: var(--accent-color);
             transition: width 0.3s ease;
         }
+
         .social-links a:hover::after {
             width: 100%;
         }
+
         .background-shapes::before,
         .background-shapes::after {
             content: '';
@@ -176,12 +201,14 @@
             background-color: rgba(255, 192, 203, 0.1);
             border-radius: 50%;
         }
+
         .background-shapes::before {
             width: 300px;
             height: 300px;
             top: -150px;
             right: -150px;
         }
+
         .background-shapes::after {
             width: 200px;
             height: 200px;
@@ -190,6 +217,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="background-shapes"></div>
     <header>
@@ -198,7 +226,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="mailto:kbond303@gamail.com">Contact</a></li>
+                <li><a href="mailto:kbond303@gmail.com">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -209,7 +237,9 @@
             <div>
                 <h1>Keeley Bond</h1>
                 <p>Software Developer</p>
-                <p>I'm a purpose-driven Software Engineer with a result-oriented mindset, School of Computing and Augmented Intelligence graduate from Arizona State University with completion of three software engineering internships.</p>
+                <p>I'm a purpose-driven Software Engineer with a result-oriented mindset, School of Computing and
+                    Augmented Intelligence graduate from Arizona State University with completion of three software
+                    engineering internships.</p>
                 <a href="######" class="cta-button">Download my resume</a>
                 <div class="social-links">
                     <a href="https://github.com/keeleybond">GitHub</a>
@@ -219,4 +249,5 @@
         </section>
     </main>
 </body>
+
 </html>
