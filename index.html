@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Web Developer</title>
+    <title>Keeley Bond - Software Developer</title>
     <style>
         :root {
             --bg-color: #1a2639;
@@ -13,7 +12,6 @@
             --heading-color: #ffffff;
             --nav-bg-color: rgba(26, 38, 57, 0.9);
         }
-
         body {
             font-family: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
             background-color: var(--bg-color);
@@ -23,14 +21,12 @@
             padding: 0;
             overflow-x: hidden;
         }
-
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 100px 50px;
             position: relative;
         }
-
         header {
             display: flex;
             justify-content: space-between;
@@ -44,29 +40,28 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
         }
-
         .logo {
             font-weight: bold;
             color: var(--accent-color);
             font-size: 1.5rem;
         }
-
         nav ul {
             list-style-type: none;
             display: flex;
         }
-
         nav ul li {
             margin-left: 30px;
         }
-
         nav ul li a {
             color: var(--heading-color);
             text-decoration: none;
             font-size: 0.9rem;
             position: relative;
+            transition: color 0.3s ease;
         }
-
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
         nav ul li a::after {
             content: '';
             position: absolute;
@@ -77,18 +72,15 @@
             background-color: var(--accent-color);
             transition: width 0.3s ease;
         }
-
         nav ul li a:hover::after {
             width: 100%;
         }
-
         h1 {
             font-size: 3rem;
             color: var(--heading-color);
             margin-bottom: 10px;
             position: relative;
         }
-
         h1::after {
             content: '';
             position: absolute;
@@ -98,14 +90,12 @@
             bottom: -10px;
             left: 0;
         }
-
         .intro {
             display: flex;
             align-items: center;
             margin-bottom: 30px;
             position: relative;
         }
-
         .avatar {
             width: 300px;
             height: 300px;
@@ -114,8 +104,8 @@
             margin-right: 40px;
             position: relative;
             z-index: 2;
+            background-color: #ccc;
         }
-
         .avatar::before {
             content: '';
             position: absolute;
@@ -127,12 +117,10 @@
             left: 15px;
             z-index: -1;
         }
-
         p {
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
-
         .cta-button {
             display: inline-block;
             background-color: transparent;
@@ -146,7 +134,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .cta-button::before {
             content: '';
             position: absolute;
@@ -158,19 +145,15 @@
             transition: width 0.3s ease;
             z-index: -1;
         }
-
         .cta-button:hover {
             color: var(--bg-color);
         }
-
         .cta-button:hover::before {
             width: 100%;
         }
-
         .social-links {
             margin-top: 20px;
         }
-
         .social-links a {
             color: var(--accent-color);
             text-decoration: none;
@@ -178,7 +161,6 @@
             font-size: 1.1rem;
             position: relative;
         }
-
         .social-links a::after {
             content: '';
             position: absolute;
@@ -189,11 +171,9 @@
             background-color: var(--accent-color);
             transition: width 0.3s ease;
         }
-
         .social-links a:hover::after {
             width: 100%;
         }
-
         .background-shapes::before,
         .background-shapes::after {
             content: '';
@@ -201,53 +181,249 @@
             background-color: rgba(255, 192, 203, 0.1);
             border-radius: 50%;
         }
-
         .background-shapes::before {
             width: 300px;
             height: 300px;
             top: -150px;
             right: -150px;
         }
-
         .background-shapes::after {
             width: 200px;
             height: 200px;
             bottom: -100px;
             left: -100px;
         }
+        #projects {
+            margin-top: 100px;
+        }
+        #projects h2 {
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            margin-bottom: 30px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .project-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        .project-card p {
+            margin-bottom: 15px;
+        }
+        .project-link {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            border: 1px solid var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .project-link:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+        }
+        #contact form input,
+        #contact form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+        }
+        #contact form button {
+            align-self: flex-start;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #contact form button:hover {
+            background-color: var(--heading-color);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+        .slide-in-left {
+            opacity: 0;
+            animation: slideInLeft 1s ease forwards;
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        h2 {
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        h2:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
-
 <body>
     <div class="background-shapes"></div>
     <header>
-        <div class="logo">KB</div>
+        <div class="logo pulse">KB</div>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="mailto:kbond303@gmail.com">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <section class="intro">
-            <img src="portfiloPicture.JPG" alt="Keeley Bond" class="avatar">
+        <section id="about" class="intro">
+            <div class="avatar slide-in-left" id="github-avatar"></div>
             <div>
-                <h1>Keeley Bond</h1>
-                <p>Software Developer</p>
-                <p>I'm a purpose-driven Software Engineer with a result-oriented mindset, School of Computing and
-                    Augmented Intelligence graduate from Arizona State University with completion of three software
-                    engineering internships.</p>
-                <a href="######" class="cta-button">Download my resume</a>
-                <div class="social-links">
+                <h1 class="fade-in-up">Keeley Bond</h1>
+                <p class="fade-in-up delay-1">Software Developer</p>
+                <p id="github-bio" class="fade-in-up delay-2">I'm a purpose-driven Software Engineer with a result-oriented mindset, School of Computing and Augmented Intelligence graduate from Arizona State University with completion of three software engineering internships.</p>
+                <a href="#" class="cta-button fade-in-up delay-3">Download my resume</a>
+                <div class="social-links fade-in-up delay-3">
                     <a href="https://github.com/keeleybond">GitHub</a>
                     <a href="https://www.linkedin.com/in/keeley-bond-464882234">LinkedIn</a>
                 </div>
             </div>
         </section>
-    </main>
-</body>
 
+        <section id="projects">
+            <h2 class="fade-in-up">My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card fade-in-up">
+                    <h3>Project 1</h3>
+                    <p>Description of project 1. Briefly explain what the project does and the technologies used.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-card fade-in-up delay-1">
+                    <h3>Project 2</h3>
+                    <p>Description of project 2. Highlight your role and any significant achievements.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-card fade-in-up delay-2">
+                    <h3>Project 3</h3>
+                    <p>Description of project 3. Mention any interesting challenges you overcame.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="fade-in-up">Contact Me</h2>
+            <form action="#" method="POST" class="fade-in-up delay-1">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simulated GitHub profile data
+        const githubData = {
+            avatar_url: 'https://avatars.githubusercontent.com/u/74918205?v=4',
+            bio: 'A wizard coder who casts powerful spells... but also wrong spells.'
+        };
+
+        document.getElementById('github-avatar').style.backgroundImage = `url(${githubData.avatar_url})`;
+        document.getElementById('github-avatar').style.backgroundSize = 'cover';
+        document.getElementById('github-bio').textContent = githubData.bio || document.getElementById('github-bio').textContent;
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up, .slide-in-left').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
 </html>
