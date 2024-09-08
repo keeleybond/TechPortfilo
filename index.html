@@ -104,10 +104,11 @@
             margin-right: 40px;
             position: relative;
             z-index: 2;
-            background-color: #ccc;
-            background-image: url('portfiloPicture.jpg'); /* Update this line */
+            background-color: #ccc; /* This will be visible if the image doesn't load */
+            background-image: url('portfiloPicture.JPG');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
         .avatar::before {
             content: '';
