@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keeley Bond - Software Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #1a2639;
@@ -12,331 +13,309 @@
             --heading-color: #ffffff;
             --nav-bg-color: rgba(26, 38, 57, 0.9);
         }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.3;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
+        
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 100px 50px;
-            position: relative;
+            padding: 0 2rem;
         }
+        
         header {
+            background-color: var(--nav-bg-color);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--nav-bg-color);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
         }
+        
         .logo {
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent-color);
-            font-size: 1.5rem;
+            text-decoration: none;
         }
+        
         nav ul {
-            list-style-type: none;
             display: flex;
+            list-style: none;
         }
+        
         nav ul li {
-            margin-left: 30px;
+            margin-left: 2rem;
         }
+        
         nav ul li a {
             color: var(--heading-color);
             text-decoration: none;
             font-size: 0.9rem;
-            position: relative;
             transition: color 0.3s ease;
         }
+        
         nav ul li a:hover {
             color: var(--accent-color);
         }
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
+        
+        section {
+            padding: 5rem 0;
         }
-        nav ul li a:hover::after {
-            width: 100%;
+        
+        h1, h2, h3 {
+            color: var(--heading-color);
         }
+        
         h1 {
             font-size: 3rem;
-            color: var(--heading-color);
-            margin-bottom: 10px;
-            position: relative;
+            margin-bottom: 1rem;
         }
-        h1::after {
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
             content: '';
             position: absolute;
-            width: 60px;
+            width: 100%;
             height: 4px;
             background-color: var(--accent-color);
             bottom: -10px;
             left: 0;
         }
-        .intro {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        .avatar {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            border: 5px solid var(--accent-color);
-            margin-right: 40px;
-            position: relative;
-            z-index: 2;
-            background-color: #ccc;
-        }
-        .avatar::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            top: 15px;
-            left: 15px;
-            z-index: -1;
-        }
+        
         p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
         }
-        .cta-button {
+        
+        .btn {
             display: inline-block;
             background-color: transparent;
             color: var(--accent-color);
             border: 1px solid var(--accent-color);
-            border-radius: 4px;
-            padding: 0.75rem 1.25rem;
-            font-size: 0.9rem;
+            padding: 0.75rem 1.5rem;
             text-decoration: none;
-            transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+        
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            background-color: var(--accent-color);
-            width: 0;
-            height: 100%;
-            left: 0;
-            top: 0;
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-        .cta-button:hover {
-            color: var(--bg-color);
-        }
-        .cta-button:hover::before {
-            width: 100%;
-        }
-        .social-links {
-            margin-top: 20px;
-        }
-        .social-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-            margin-right: 15px;
-            font-size: 1.1rem;
-            position: relative;
-        }
-        .social-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-        .social-links a:hover::after {
-            width: 100%;
-        }
-        .background-shapes::before,
-        .background-shapes::after {
-            content: '';
-            position: absolute;
-            background-color: rgba(255, 192, 203, 0.1);
-            border-radius: 50%;
-        }
-        .background-shapes::before {
-            width: 300px;
-            height: 300px;
-            top: -150px;
-            right: -150px;
-        }
-        .background-shapes::after {
+        
+        .avatar-container {
             width: 200px;
             height: 200px;
-            bottom: -100px;
-            left: -100px;
+            margin: 0 auto 2rem;
+            position: relative;
         }
-        #projects {
-            margin-top: 100px;
+        
+        .avatar-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 5px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
         }
-        #projects h2 {
-            font-size: 2.5rem;
+        
+        .avatar-bg {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            z-index: 1;
+        }
+        
+        .computer-icon {
+            font-size: 5rem;
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
             color: var(--heading-color);
-            margin-bottom: 30px;
         }
-        .project-grid {
+        
+        .bg-shape {
+            position: absolute;
+            opacity: 0.1;
+        }
+        
+        .bg-shape-1 {
+            top: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+        
+        .bg-shape-2 {
+            bottom: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-color: var(--heading-color);
+        }
+        
+        #about .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text, .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
+        
         .project-card {
             background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
         }
+        
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        .project-card h3 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-        .project-card p {
-            margin-bottom: 15px;
-        }
-        .project-link {
-            display: inline-block;
-            color: var(--accent-color);
-            text-decoration: none;
-            border: 1px solid var(--accent-color);
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .project-link:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-        }
+        
         #contact form {
-            display: flex;
-            flex-direction: column;
-            max-width: 500px;
+            max-width: 600px;
+            margin: 0 auto;
         }
+        
         #contact form input,
         #contact form textarea {
+            width: 100%;
+            padding: 0.75rem;
             margin-bottom: 1rem;
-            padding: 0.5rem;
-            border: 1px solid var(--accent-color);
             background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--accent-color);
             color: var(--text-color);
         }
+        
         #contact form button {
-            align-self: flex-start;
             background-color: var(--accent-color);
             color: var(--bg-color);
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+        
         #contact form button:hover {
             background-color: var(--heading-color);
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        .fade-in-up {
+        
+        .fade-in {
             opacity: 0;
-            animation: fadeInUp 1s ease forwards;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
-        .slide-in-left {
-            opacity: 0;
-            animation: slideInLeft 1s ease forwards;
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-        h2 {
-            position: relative;
-            display: inline-block;
-        }
-        h2::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-        h2:hover::after {
-            width: 100%;
+        
+        @media (max-width: 768px) {
+            #about .content {
+                flex-direction: column;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="background-shapes"></div>
     <header>
-        <div class="logo pulse">KB</div>
-        <nav>
+        <nav class="container">
+            <a href="#home" class="logo">KB</a>
             <ul>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -344,50 +323,86 @@
         </nav>
     </header>
 
-    <main class="container">
-        <section id="about" class="intro">
-            <div class="avatar slide-in-left" id="github-avatar"></div>
-            <div>
-                <h1 class="fade-in-up">Keeley Bond</h1>
-                <p class="fade-in-up delay-1">Software Developer</p>
-                <p id="github-bio" class="fade-in-up delay-2">I'm a purpose-driven Software Engineer with a result-oriented mindset, School of Computing and Augmented Intelligence graduate from Arizona State University with completion of three software engineering internships.</p>
-                <a href="#" class="cta-button fade-in-up delay-3">Download my resume</a>
-                <div class="social-links fade-in-up delay-3">
-                    <a href="https://github.com/keeleybond">GitHub</a>
-                    <a href="https://www.linkedin.com/in/keeley-bond-464882234">LinkedIn</a>
+    <main>
+        <section id="home">
+            <div class="bg-shape bg-shape-1"></div>
+            <div class="bg-shape bg-shape-2"></div>
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <div class="avatar-container">
+                        <div class="avatar-circle">
+                            <i class="fas fa-laptop-code computer-icon"></i>
+                        </div>
+                        <div class="avatar-bg"></div>
+                    </div>
+                    <h1>Keeley Bond</h1>
+                    <p>Software Developer | Problem Solver | Innovator</p>
+                    <a href="#contact" class="btn">Get in touch</a>
+                    <div class="social-links">
+                        <a href="https://github.com/keeleybond" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/keeley-bond-464882234" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="fade-in">About Me</h2>
+                <div class="content">
+                    <div class="about-text fade-in">
+                        <p>Hello! I'm Keeley Bond, a purpose-driven Software Engineer with a result-oriented mindset. I recently graduated from Arizona State University's School of Computing and Augmented Intelligence, where I honed my skills in various aspects of software engineering.</p>
+                        <p>Throughout my academic journey, I completed three software engineering internships, which provided me with valuable real-world experience and helped me develop a keen eye for creating efficient, scalable solutions.</p>
+                        <p>I'm passionate about leveraging technology to solve complex problems and create meaningful impact. When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or engaging in hackathons to push my creative boundaries.</p>
+                    </div>
+                    <div class="about-image fade-in">
+                        <img src="portfiloPicture.JPG" alt="Keeley Bond working on a project">
+                    </div>
+                </div>
+                <div class="skills fade-in">
+                    <i class="fab fa-js skill-icon" title="JavaScript"></i>
+                    <i class="fab fa-python skill-icon" title="Python"></i>
+                    <i class="fab fa-react skill-icon" title="React"></i>
+                    <i class="fab fa-node-js skill-icon" title="Node.js"></i>
+                    <i class="fas fa-database skill-icon" title="SQL"></i>
+                    <i class="fab fa-git-alt skill-icon" title="Git"></i>
                 </div>
             </div>
         </section>
 
         <section id="projects">
-            <h2 class="fade-in-up">My Projects</h2>
-            <div class="project-grid">
-                <div class="project-card fade-in-up">
-                    <h3>Project 1</h3>
-                    <p>Description of project 1. Briefly explain what the project does and the technologies used.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-                <div class="project-card fade-in-up delay-1">
-                    <h3>Project 2</h3>
-                    <p>Description of project 2. Highlight your role and any significant achievements.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-                <div class="project-card fade-in-up delay-2">
-                    <h3>Project 3</h3>
-                    <p>Description of project 3. Mention any interesting challenges you overcame.</p>
-                    <a href="#" class="project-link">View Project</a>
+            <div class="container">
+                <h2 class="fade-in">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card fade-in">
+                        <h3>Project 1</h3>
+                        <p>A brief description of project 1. Highlight the key features and technologies used.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                    <div class="project-card fade-in">
+                        <h3>Project 2</h3>
+                        <p>A brief description of project 2. Mention your role and any significant achievements.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                    <div class="project-card fade-in">
+                        <h3>Project 3</h3>
+                        <p>A brief description of project 3. Discuss any interesting challenges you overcame.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <h2 class="fade-in-up">Contact Me</h2>
-            <form action="#" method="POST" class="fade-in-up delay-1">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+            <div class="container">
+                <h2 class="fade-in">Get in Touch</h2>
+                <form class="fade-in">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
         </section>
     </main>
 
@@ -402,26 +417,16 @@
             });
         });
 
-        // Simulated GitHub profile data
-        const githubData = {
-            avatar_url: 'https://avatars.githubusercontent.com/u/74918205?v=4',
-            bio: 'A wizard coder who casts powerful spells... but also wrong spells.'
-        };
-
-        document.getElementById('github-avatar').style.backgroundImage = `url(${githubData.avatar_url})`;
-        document.getElementById('github-avatar').style.backgroundSize = 'cover';
-        document.getElementById('github-bio').textContent = githubData.bio || document.getElementById('github-bio').textContent;
-
         // Intersection Observer for scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
+                    entry.target.classList.add('appear');
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in-up, .slide-in-left').forEach(el => {
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
     </script>
