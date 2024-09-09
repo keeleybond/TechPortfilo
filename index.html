@@ -335,13 +335,7 @@
                         <img id="github-avatar" src="placeholder-avatar.jpg" alt="Keeley Bond's GitHub Avatar">
                     </div>
                     <h1>Hi, I'm Keeley Bond</h1>
-                    <p>Software Developer | Full-Stack Engineer | Innovator</p>
                     <p id="github-bio">Loading bio...</p>
-                    <div class="github-stats">
-                        <span>Repos: <span id="github-repos">-</span></span>
-                        <span>Followers: <span id="github-followers">-</span></span>
-                        <span>Following: <span id="github-following">-</span></span>
-                    </div>
                     <a href="FastTrackResumeKeeley.pdf" class="btn" download>Download my resume</a>
                     <div class="social-links">
                         <a href="https://github.com/keeleybond" target="_blank"><i class="fab fa-github"></i></a>
@@ -492,9 +486,9 @@
                 document.getElementById('github-bio').textContent = data.bio || 'No bio available';
 
                 // Update other GitHub-specific data
-                /*document.getElementById('github-repos').textContent = data.public_repos;
+                document.getElementById('github-repos').textContent = data.public_repos;
                 document.getElementById('github-followers').textContent = data.followers;
-                document.getElementById('github-following').textContent = data.following;*/
+                document.getElementById('github-following').textContent = data.following;
             } catch (error) {
                 console.error('Error fetching GitHub data:', error);
             }
