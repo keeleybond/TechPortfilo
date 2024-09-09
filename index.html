@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,26 +14,26 @@
             --heading-color: #ffffff;
             --nav-bg-color: rgba(26, 38, 57, 0.9);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
+
         header {
             background-color: var(--nav-bg-color);
             backdrop-filter: blur(10px);
@@ -41,60 +42,62 @@
             z-index: 1000;
             padding: 1rem 0;
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent-color);
             text-decoration: none;
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+
         nav ul li {
             margin-left: 2rem;
         }
-        
+
         nav ul li a {
             color: var(--heading-color);
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s ease;
         }
-        
+
         nav ul li a:hover {
             color: var(--accent-color);
         }
-        
+
         section {
             padding: 5rem 0;
         }
-        
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             color: var(--heading-color);
         }
-        
+
         h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-        
+
         h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
             position: relative;
             display: inline-block;
         }
-        
+
         h2::after {
             content: '';
             position: absolute;
@@ -104,11 +107,11 @@
             bottom: -10px;
             left: 0;
         }
-        
+
         p {
             margin-bottom: 1rem;
         }
-        
+
         .btn {
             display: inline-block;
             background-color: transparent;
@@ -118,12 +121,12 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        
+
         .btn:hover {
             background-color: var(--accent-color);
             color: var(--bg-color);
         }
-        
+
         #home {
             height: 100vh;
             display: flex;
@@ -133,14 +136,14 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .avatar-container {
             width: 200px;
             height: 200px;
             margin: 0 auto 2rem;
             position: relative;
         }
-        
+
         .avatar-circle {
             width: 100%;
             height: 100%;
@@ -153,7 +156,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .avatar-bg {
             position: absolute;
             top: 15px;
@@ -164,32 +167,32 @@
             background-color: var(--accent-color);
             z-index: 1;
         }
-        
+
         .computer-icon {
             font-size: 5rem;
             color: var(--accent-color);
         }
-        
+
         .social-links {
             margin-top: 1rem;
         }
-        
+
         .social-links a {
             color: var(--accent-color);
             font-size: 1.5rem;
             margin: 0 0.5rem;
             transition: color 0.3s ease;
         }
-        
+
         .social-links a:hover {
             color: var(--heading-color);
         }
-        
+
         .bg-shape {
             position: absolute;
             opacity: 0.1;
         }
-        
+
         .bg-shape-1 {
             top: -50px;
             left: -50px;
@@ -198,7 +201,7 @@
             border-radius: 50%;
             background-color: var(--accent-color);
         }
-        
+
         .bg-shape-2 {
             bottom: -100px;
             right: -100px;
@@ -207,24 +210,25 @@
             border-radius: 50%;
             background-color: var(--heading-color);
         }
-        
+
         #about .content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 3rem;
         }
-        
-        .about-text, .about-image {
+
+        .about-text,
+        .about-image {
             flex: 1;
         }
-        
+
         .about-image img {
             max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         .skills {
             display: flex;
             justify-content: center;
@@ -232,39 +236,39 @@
             gap: 2rem;
             margin-top: 3rem;
         }
-        
+
         .skill-icon {
             font-size: 3rem;
             color: var(--accent-color);
             transition: transform 0.3s ease;
         }
-        
+
         .skill-icon:hover {
             transform: translateY(-5px);
         }
-        
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-        
+
         .project-card {
             background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             padding: 1.5rem;
             transition: transform 0.3s ease;
         }
-        
+
         .project-card:hover {
             transform: translateY(-10px);
         }
-        
+
         #contact form {
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         #contact form input,
         #contact form textarea {
             width: 100%;
@@ -274,7 +278,7 @@
             border: 1px solid var(--accent-color);
             color: var(--text-color);
         }
-        
+
         #contact form button {
             background-color: var(--accent-color);
             color: var(--bg-color);
@@ -283,33 +287,34 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        
+
         #contact form button:hover {
             background-color: var(--heading-color);
         }
-        
+
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
-        
+
         .fade-in.appear {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         @media (max-width: 768px) {
             #about .content {
                 flex-direction: column;
             }
-            
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="container">
@@ -337,10 +342,11 @@
                     </div>
                     <h1>Hi, I'm Keeley Bond</h1>
                     <p>Software Developer | Full-Stack Engineer | Innovator</p>
-                    <a href="Keeley_Resume.pdf" class="btn" download>Download my resume</a>
+                    <a href="FastTrackResumeKeeley.pdf" class="btn" download>Download my resume</a>
                     <div class="social-links">
                         <a href="https://github.com/keeleybond" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/keeley-bond-464882234" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/keeley-bond-464882234" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -351,21 +357,27 @@
                 <h2 class="fade-in">About Me</h2>
                 <div class="content">
                     <div class="about-text fade-in">
-                        <p>Hello! I'm Keeley Bond, a purpose-driven Software Engineer with a result-oriented mindset. I recently graduated from Arizona State University's School of Computing and Augmented Intelligence, where I honed my skills in various aspects of software engineering.</p>
-                        <p>Throughout my academic journey, I completed three software engineering internships, which provided me with valuable real-world experience and helped me develop a keen eye for creating efficient, scalable solutions.</p>
-                        <p>I'm passionate about leveraging technology to solve complex problems and create meaningful impact. When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or engaging in hackathons to push my creative boundaries.</p>
+                        <p>Hello! I'm Keeley Bond, a purpose-driven Software Engineer with a result-oriented mindset. I
+                            recently graduated from Arizona State University's School of Computing and Augmented
+                            Intelligence, where I honed my skills in various aspects of software engineering.</p>
+                        <p>Throughout my academic journey, I completed three software engineering internships, which
+                            provided me with valuable real-world experience and helped me develop a keen eye for
+                            creating efficient, scalable solutions.</p>
+                        <p>I'm passionate about leveraging technology to solve complex problems and create meaningful
+                            impact. When I'm not coding, you can find me exploring new technologies, contributing to
+                            open-source projects, or engaging in hackathons to push my creative boundaries.</p>
                     </div>
                     <div class="about-image fade-in">
                         <img src="portfiloPicture.JPG" alt="Keeley Bond working on a project">
                     </div>
                 </div>
                 <div class="skills fade-in">
-                    <i class="fab fa-js skill-icon" title="JavaScript"></i>
-                    <i class="fab fa-python skill-icon" title="Python"></i>
-                    <i class="fab fa-react skill-icon" title="React"></i>
-                    <i class="fab fa-node-js skill-icon" title="Node.js"></i>
-                    <i class="fas fa-database skill-icon" title="SQL"></i>
+                    <i class="fab fa-java skill-icon" title="Java"></i>
+                    <i class="fab fa-js-square skill-icon" title="JavaScript"></i>
+                    <i class="fab fa-cuttlefish skill-icon" title="C++"></i>
                     <i class="fab fa-git-alt skill-icon" title="Git"></i>
+                    <i class="fab fa-react skill-icon" title="React"></i>
+                    <i class="fas fa-database skill-icon" title="SQL"></i>
                 </div>
             </div>
         </section>
@@ -376,12 +388,17 @@
                 <div class="projects-grid">
                     <div class="project-card fade-in">
                         <h3>Spring Boot Social Media Twitter RESTful API </h3>
-                        <p>Developed a RESTful API implementing endpoints for CRUD operations on users, tweets, and hashtags, closely mimicking Twitter's functionality.</p>
-                        <a href="https://github.com/fasttrackd-student-work/spring-assessment-social-media-team-2-august-cohort-2024" class="btn">View Project</a>
+                        <p>Developed a RESTful API implementing endpoints for CRUD operations on users, tweets, and
+                            hashtags, closely mimicking Twitter's functionality.</p>
+                        <a href="https://github.com/fasttrackd-student-work/spring-assessment-social-media-team-2-august-cohort-2024"
+                            class="btn">View Project</a>
                     </div>
                     <div class="project-card fade-in">
                         <h3>Wanderlust Pro</h3>
-                        <p>Wanderlust Planner is an innovative mobile application designed to enhance the travel planning experience by seamlessly integrating itinerary planning, trip logging, and local recommendations. This app aims to be the go-to tool for users aspiring to organize and optimize their dream vacations.</p>
+                        <p>Wanderlust Planner is an innovative mobile application designed to enhance the travel
+                            planning experience by seamlessly integrating itinerary planning, trip logging, and local
+                            recommendations. This app aims to be the go-to tool for users aspiring to organize and
+                            optimize their dream vacations.</p>
                         <a href="https://github.com/keeleybond/WanderlustPro" class="btn">View Project</a>
                     </div>
                     <div class="project-card fade-in">
@@ -431,4 +448,5 @@
         });
     </script>
 </body>
+
 </html>
