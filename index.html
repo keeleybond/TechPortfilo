@@ -80,7 +80,9 @@
             padding: 5rem 0;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: var(--heading-color);
         }
 
@@ -195,7 +197,8 @@
             gap: 3rem;
         }
 
-        .about-text, .about-image {
+        .about-text,
+        .about-image {
             flex: 1;
         }
 
@@ -377,10 +380,14 @@
                             decisions in aerial drone footage, including projects for a boat charter company in Exuma,
                             Bahamas.</p>
 
-                        <p>I apply my problem-solving skills and attention to detail in restaurant hospitality. My experience 
-                            in this field has sharpened my communication skills and ability to understand and meet diverse client 
-                            needs effectively. These skills translate well into collaborating with stakeholders in software development
-                            projects, allowing me to bridge the gap between technical requirements and user expectations.</p>
+                        <p>I apply my problem-solving skills and attention to detail in restaurant hospitality. My
+                            experience
+                            in this field has sharpened my communication skills and ability to understand and meet
+                            diverse client
+                            needs effectively. These skills translate well into collaborating with stakeholders in
+                            software development
+                            projects, allowing me to bridge the gap between technical requirements and user
+                            expectations.</p>
 
                         <p>I'm passionate about leveraging technology to solve complex problems and create meaningful
                             impact. My diverse background allows me to approach challenges with a unique perspective,
@@ -435,4 +442,67 @@
             <div class="container">
                 <h2 class="fade-in">Get in Touch</h2>
                 <form class="fade-in">
-                    <input type="text" placeholder="Your Name
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <script>
+        const GITHUB_USERNAME = 'keeleybond';
+        const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}`;
+
+        async function fetchGitHubData() {
+            try {
+                const response = await fetch(GITHUB_API_URL);
+                const data = await response.json();
+
+                // Update profile picture
+                document.getElementById('github-avatar').src = data.avatar_url;
+
+                // Update bio
+                document.getElementById('github-bio').textContent = data.bio || 'No bio available';
+
+                // Update other GitHub-specific data
+                document.getElementById('github-repos').textContent = data.public_repos;
+                document.getElementById('github-followers').textContent = data.followers;
+                document.getElementById('github-following').textContent = data.following;
+            } catch (error) {
+                console.error('Error fetching GitHub data:', error);
+            }
+        }
+
+        // Call the function when the page loads
+        window.addEventListener('load', fetchGitHubData);
+    </script>
+</body>
+
+</html>
