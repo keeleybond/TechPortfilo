@@ -479,13 +479,10 @@
                 const response = await fetch(GITHUB_API_URL);
                 const data = await response.json();
 
-                // Update profile picture
                 document.getElementById('github-avatar').src = data.avatar_url;
-
-                // Update bio
+                document.getElementById('github-name').textContent = data.name || 'No name available';
                 document.getElementById('github-bio').textContent = data.bio || 'No bio available';
 
-                // Update other GitHub-specific data
                 document.getElementById('github-repos').textContent = data.public_repos;
                 document.getElementById('github-followers').textContent = data.followers;
                 document.getElementById('github-following').textContent = data.following;
