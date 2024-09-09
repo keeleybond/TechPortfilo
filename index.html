@@ -80,9 +80,7 @@
             padding: 5rem 0;
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             color: var(--heading-color);
         }
 
@@ -144,33 +142,12 @@
             position: relative;
         }
 
-        .avatar-circle {
+        .avatar-container img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background-color: var(--bg-color);
             border: 5px solid var(--accent-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .avatar-bg {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            z-index: 1;
-        }
-
-        .computer-icon {
-            font-size: 5rem;
-            color: var(--accent-color);
+            object-fit: cover;
         }
 
         .social-links {
@@ -218,8 +195,7 @@
             gap: 3rem;
         }
 
-        .about-text,
-        .about-image {
+        .about-text, .about-image {
             flex: 1;
         }
 
@@ -303,6 +279,24 @@
             transform: translateY(0);
         }
 
+        #github-bio {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .github-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .github-stats span {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
         @media (max-width: 768px) {
             #about .content {
                 flex-direction: column;
@@ -335,13 +329,16 @@
             <div class="container">
                 <div class="hero-content fade-in">
                     <div class="avatar-container">
-                        <div class="avatar-circle">
-                            <i class="fas fa-laptop-code computer-icon"></i>
-                        </div>
-                        <div class="avatar-bg"></div>
+                        <img id="github-avatar" src="placeholder-avatar.jpg" alt="Keeley Bond's GitHub Avatar">
                     </div>
                     <h1>Hi, I'm Keeley Bond</h1>
                     <p>Software Developer | Full-Stack Engineer | Innovator</p>
+                    <p id="github-bio">Loading bio...</p>
+                    <div class="github-stats">
+                        <span>Repos: <span id="github-repos">-</span></span>
+                        <span>Followers: <span id="github-followers">-</span></span>
+                        <span>Following: <span id="github-following">-</span></span>
+                    </div>
                     <a href="FastTrackResumeKeeley.pdf" class="btn" download>Download my resume</a>
                     <div class="social-links">
                         <a href="https://github.com/keeleybond" target="_blank"><i class="fab fa-github"></i></a>
@@ -382,7 +379,7 @@
 
                         <p>I apply my problem-solving skills and attention to detail in restaurant hospitality. My experience 
                             in this field has sharpened my communication skills and ability to understand and meet diverse client 
-                            needs effectively.These skills translate well into collaborating with stakeholders in software development
+                            needs effectively. These skills translate well into collaborating with stakeholders in software development
                             projects, allowing me to bridge the gap between technical requirements and user expectations.</p>
 
                         <p>I'm passionate about leveraging technology to solve complex problems and create meaningful
@@ -411,7 +408,7 @@
                 <h2 class="fade-in">Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card fade-in">
-                        <h3>Spring Boot Social Media Twitter RESTful API </h3>
+                        <h3>Spring Boot Social Media Twitter RESTful API</h3>
                         <p>Developed a RESTful API implementing endpoints for CRUD operations on users, tweets, and
                             hashtags, closely mimicking Twitter's functionality.</p>
                         <a href="https://github.com/fasttrackd-student-work/spring-assessment-social-media-team-2-august-cohort-2024"
@@ -438,39 +435,4 @@
             <div class="container">
                 <h2 class="fade-in">Get in Touch</h2>
                 <form class="fade-in">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('appear');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-</body>
-
-</html>
+                    <input type="text" placeholder="Your Name
