@@ -355,34 +355,26 @@
                             recently graduated from Arizona State University's School of Computing and Augmented
                             Intelligence with a Bachelor of Science in Computer Science, where I honed my skills in
                             various aspects of software engineering.</p>
-
                         <p>Throughout my academic journey, I completed three software engineering internships at the
                             University of Phoenix, which provided me with valuable real-world experience. These
                             internships allowed me to work on diverse projects, from creating accessible user interfaces
                             to eliminating obsolete applications and implementing Kafka-based solutions. I've gained
                             proficiency in technologies such as JavaScript, Java, Kafka, AWS, and microservices, as well
                             as experience with Agile methodologies.</p>
-
                         <p>My coding journey has been complemented by hands-on experience with various programming
                             languages and frameworks. I've worked extensively with C++, C, Java, and Swift, completing
                             challenging assignments in data structures and algorithms. This strong foundation allows me
                             to approach complex problems with a systematic and efficient mindset.</p>
-
                         <p>Beyond my core software engineering skills, I bring a unique blend of experiences. I have six
                             years of leadership in freelance drone and HD videography, including editing with Adobe
                             Premiere. My work has been recognized by clients for creative and cinematic artistic
                             decisions in aerial drone footage, including projects for a boat charter company in Exuma,
                             Bahamas.</p>
-
                         <p>I apply my problem-solving skills and attention to detail in restaurant hospitality. My
-                            experience
-                            in this field has sharpened my communication skills and ability to understand and meet
-                            diverse client
-                            needs effectively. These skills translate well into collaborating with stakeholders in
-                            software development
-                            projects, allowing me to bridge the gap between technical requirements and user
-                            expectations.</p>
-
+                            experience in this field has sharpened my communication skills and ability to understand and
+                            meet diverse client needs effectively. These skills translate well into collaborating with
+                            stakeholders in software development projects, allowing me to bridge the gap between
+                            technical requirements and user expectations.</p>
                         <p>I'm passionate about leveraging technology to solve complex problems and create meaningful
                             impact. My diverse background allows me to approach challenges with a unique perspective,
                             combining technical expertise with creativity and strong interpersonal skills. I'm always
@@ -425,7 +417,7 @@
                     </div>
                     <div class="project-card fade-in">
                         <h3>Project 3</h3>
-                        <p>###############</p>
+                        <p>Description of Project 3 goes here.</p>
                         <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
@@ -435,11 +427,11 @@
         <section id="contact">
             <div class="container">
                 <h2 class="fade-in">Get in Touch</h2>
-                <form class="fade-in">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
+                <form id="contactForm" class="fade-in">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="button" id="sendButton" class="btn">Send Message</button>
                 </form>
             </div>
         </section>
@@ -468,9 +460,8 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-    </script>
 
-    <script>
+        // GitHub data fetching
         const GITHUB_USERNAME = 'keeleybond';
         const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}`;
 
@@ -481,18 +472,38 @@
 
                 document.getElementById('github-avatar').src = data.avatar_url;
                 document.getElementById('github-bio').textContent = data.bio || 'No bio available';
-                document.getElementById('github-name').textContent = data.name || 'No name available';
 
-                document.getElementById('github-repos').textContent = data.public_repos;
-                document.getElementById('github-followers').textContent = data.followers;
-                document.getElementById('github-following').textContent = data.following;
+                if (document.getElementById('github-repos')) {
+                    document.getElementById('github-repos').textContent = data.public_repos;
+                }
+                if (document.getElementById('github-followers')) {
+                    document.getElementById('github-followers').textContent = data.followers;
+                }
+                if (document.getElementById('github-following')) {
+                    document.getElementById('github-following').textContent = data.following;
+                }
             } catch (error) {
                 console.error('Error fetching GitHub data:', error);
             }
         }
 
-        // Call the function when the page loads
         window.addEventListener('load', fetchGitHubData);
+
+        // Contact form mailto functionality
+        document.getElementById('sendButton').addEventListener('click', function (e) {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !message) {
+                alert('Please fill out all fields before sending.');
+                return;
+            }
+
+            const mailtoLink = `mailto:kbond303@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+
+            window.location.href = mailtoLink;
+        });
     </script>
 </body>
 
