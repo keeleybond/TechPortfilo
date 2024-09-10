@@ -417,7 +417,7 @@
                     </div>
                     <div class="project-card fade-in">
                         <h3>Project 3</h3>
-                        <p>Description of Project 3 goes here.</p>
+                        <p>####################</p>
                         <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
@@ -438,7 +438,6 @@
     </main>
 
     <script>
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -448,7 +447,6 @@
             });
         });
 
-        // Intersection Observer for scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -489,7 +487,7 @@
 
         window.addEventListener('load', fetchGitHubData);
 
-        // Contact form mailto functionality
+        // Contact form mailto functionality for contact section
         document.getElementById('sendButton').addEventListener('click', function (e) {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
